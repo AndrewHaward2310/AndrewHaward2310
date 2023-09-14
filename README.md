@@ -116,11 +116,6 @@ I specialize in developing cutting-edge machine learning models and algorithms t
 
 <img align="right" height="110" src="https://i.imgflip.com/65efzo.gif"  />
 
-###
-
-<img src="https://raw.githubusercontent.com/AndrewHaward2310/AndrewHaward2310/output/snake.svg" alt="Snake animation" />
-
-###
 
 ---
 
