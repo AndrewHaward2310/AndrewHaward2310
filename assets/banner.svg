@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0f1a"/>
+      <stop offset="1" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#1f3a52" stroke-width="0.6" opacity="0.55"/>
+    </pattern>
+    <radialGradient id="glow" cx="0.82" cy="0.5" r="0.35">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace; }
+      .name { font: 700 52px 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill: #e6edf3; letter-spacing: 1px; }
+      .role { font-size: 18px; fill: #22d3ee; letter-spacing: 4px; }
+      .dim  { font-size: 13px; fill: #5b7a93; }
+      .link { stroke: #22d3ee; stroke-width: 2.2; stroke-linecap: round; fill: none; opacity: 0.85; }
+      .joint { fill: #0a0f1a; stroke: #a78bfa; stroke-width: 2; }
+      .pulse { animation: pulse 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .d1 { animation-delay: .3s } .d2 { animation-delay: .6s } .d3 { animation-delay: .9s } .d4 { animation-delay: 1.2s }
+      @keyframes pulse { 0%,100% { stroke: #a78bfa; } 50% { stroke: #22d3ee; transform: scale(1.35); } }
+      .scanline { animation: scan 4s linear infinite; }
+      @keyframes scan { from { transform: translateY(-60px); } to { transform: translateY(300px); } }
+      .cursor { animation: blink 1s steps(1) infinite; }
+      @keyframes blink { 50% { opacity: 0; } }
+      .sway { animation: sway 3s ease-in-out infinite; transform-origin: 1000px 265px; }
+      @keyframes sway { 0%,100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="300" rx="14" fill="url(#bg)"/>
+  <rect width="1200" height="300" rx="14" fill="url(#grid)"/>
+  <rect width="1200" height="300" rx="14" fill="url(#glow)"/>
+
+  <!-- left: text -->
+  <text x="70" y="78" class="mono dim">$ whoami</text>
+  <text x="70" y="148" class="name">Le Duc Nguyen</text>
+  <text x="72" y="188" class="mono role">AI ENGINEER // HUMANOID ROBOTICS</text>
+  <text x="72" y="240" class="mono dim">RL · imitation learning · sim-to-real · whole-body control</text>
+  <rect x="72" y="198" width="60" height="3" fill="#a78bfa"/>
+  <rect x="536" y="226" width="9" height="17" fill="#22d3ee" class="cursor"/>
+
+  <!-- right: humanoid skeleton -->
+  <g stroke="#22d3ee" stroke-width="1.5" fill="none" opacity="0.6">
+    <path d="M880 40h22M880 40v22"/>
+    <path d="M1120 40h-22M1120 40v22"/>
+    <path d="M880 280h22M880 280v-22"/>
+    <path d="M1120 280h-22M1120 280v-22"/>
+  </g>
+  <text x="884" y="32" class="mono dim" font-size="11">policy: π(a|s)  ·  dof=23</text>
+
+  <g class="sway">
+    <circle cx="1000" cy="66" r="14" class="link"/>
+    <path class="link" d="M1000 82V170"/>
+    <path class="link" d="M968 102H1032"/>
+    <path class="link" d="M968 102L952 140L948 178"/>
+    <path class="link" d="M1032 102L1048 140L1052 178"/>
+    <path class="link" d="M984 172H1016"/>
+    <path class="link" d="M984 172L978 220L976 262"/>
+    <path class="link" d="M1016 172L1022 220L1024 262"/>
+    <path class="link" d="M964 264H986M1014 264H1036"/>
+
+    <circle cx="1000" cy="102" r="4.5" class="joint pulse"/>
+    <circle cx="968" cy="102" r="4.5" class="joint pulse d1"/>
+    <circle cx="1032" cy="102" r="4.5" class="joint pulse d1"/>
+    <circle cx="952" cy="140" r="4.5" class="joint pulse d2"/>
+    <circle cx="1048" cy="140" r="4.5" class="joint pulse d2"/>
+    <circle cx="1000" cy="170" r="4.5" class="joint pulse d1"/>
+    <circle cx="984" cy="172" r="4.5" class="joint pulse d3"/>
+    <circle cx="1016" cy="172" r="4.5" class="joint pulse d3"/>
+    <circle cx="978" cy="220" r="4.5" class="joint pulse d4"/>
+    <circle cx="1022" cy="220" r="4.5" class="joint pulse d4"/>
+  </g>
+
+  <rect x="860" y="0" width="280" height="60" fill="url(#scan)" class="scanline"/>
+</svg>
